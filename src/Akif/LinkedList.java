@@ -4,6 +4,7 @@ public class LinkedList {
 
     private Node first; //head
     private Node last; //tail
+    private int size;
 
     private class Node {
 
@@ -16,12 +17,10 @@ public class LinkedList {
 
     }
 
-    public int size=0;
 
     //addFirst
     //addLast
     //deleteFirst
-    //deleteLast
     //contains
     //indexOf
 
@@ -50,9 +49,47 @@ public class LinkedList {
 
     }
 
-//    public int indexOf(int item) {
-//
-//    }
+    public int indexOf(int item) {
+        int index = 0;
+        var current_node  = first;
+
+        while(current_node!= null) {
+            if(current_node.value == item) return index;
+            current_node = current_node.next;
+            index ++;
+        }
+        return -1;
+    }
+
+    public boolean contains(int item) {
+        return indexOf(item)!=-1; //Resuing own created indexOf
+    }
+
+    public void removeFirst() {
+        var second = first.next;
+        first.next = null;
+        first = second;
+    }
+
+    public void printlist() {
+        //Made by Akif
+        Node current_node;
+        current_node = first;
+
+        if(current_node==null) {
+            System.out.println("This list is empty :) ");
+            return; // It will get back from here
+        }
+
+        System.out.print("[");
+        while(current_node.next!=null) {
+            System.out.print(current_node.value + ",");
+            current_node = current_node.next;
+        }
+
+        System.out.println(current_node.value + "]");
+
+    }
 
 
 }
