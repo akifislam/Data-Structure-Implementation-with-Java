@@ -1,6 +1,6 @@
 package Akif;
 
-public class LinkedList {
+public class SingleLinkedList {
 
     private Node first; //head
     private Node last; //tail
